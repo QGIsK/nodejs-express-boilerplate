@@ -1,33 +1,33 @@
-const { createLogger, transports, format } = require('winston');
-const fs = require('fs');
-const path = require('path');
-const DailyRotateFile = require('winston-daily-rotate-file');
-const { environment, logDirectory } = require('../config');
+const { createLogger, transports, format } = require("winston");
+const fs = require("fs");
+const path = require("path");
+const DailyRotateFile = require("winston-daily-rotate-file");
+const { environment, logDirectory } = require("../config");
 
 let dir = logDirectory;
-if (!dir) dir = path.resolve('logs');
+if (!dir) dir = path.resolve("logs");
 
 // Create directory if it is not present
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 
-const logLevel = environment === 'development' ? 'debug' : 'warn';
+const logLevel = environment === "development" ? "debug" : "warn";
 
 const options = {
   file: {
     level: logLevel,
-    filename: dir + '/%DATE%.log',
-    datePattern: 'YYYY-MM-DD',
+    filename: dir + "/%DATE%.log",
+    datePattern: "YYYY-MM-DD",
     zippedArchive: true,
     timestamp: true,
     handleExceptions: true,
     humanReadableUnhandledException: true,
     prettyPrint: true,
     json: true,
-    maxSize: '20m',
+    maxSize: "20m",
     colorize: true,
-    maxFiles: '14d',
+    maxFiles: "14d",
   },
 };
 
@@ -42,5 +42,5 @@ exports.logger = createLogger({
     }),
   ],
   exceptionHandlers: [new DailyRotateFile(options.file)],
-  exitOnError: false, // do not exit on handled exceptions
+  exitOnError: true, // do not exit on handled exceptions
 });
