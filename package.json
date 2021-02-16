@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-express-boilerplate",
+  "version": "1.0.0",
+  "description": "Boiler plate for nodejs web applications",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QGIsK/nodejs-express-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "nodejs",
+    "express",
+    "webapplication",
+    "web",
+    "api"
+  ],
+  "author": "Demian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QGIsK/nodejs-express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/QGIsK/nodejs-express-boilerplate#readme"
+}
