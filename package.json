@@ -29,10 +29,10 @@
     "@root": "./src",
     "@db": "./src/db/",
     "@middleware": "./src/middleware/",
-    "@routes": "./src/routes/",
+    "@router": "./src/router/",
     "@utils": "./src/utils/",
-    "@controllers": "./src/routes/controllers",
-    "@handlers": "./src/routes/handlers"
+    "@controllers": "./src/router/controllers",
+    "@handlers": "./src/router/handlers"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -41,6 +41,7 @@
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.5",
     "helmet": "^4.4.1",
+    "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "mongoose": "^5.11.15",
     "mongoose-timestamp": "^0.6.0",
