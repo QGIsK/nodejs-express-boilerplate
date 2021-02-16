@@ -16,4 +16,6 @@ mongoose
     process.exit(0);
   });
 
-module.exports = {};
+module.exports = {
+  User: require("./models/User"),
+};
