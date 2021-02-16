@@ -5,10 +5,10 @@ const { BadRequest, ServerError, Forbidden } = require("@utils/errors");
 const { secret, select } = require("@root/config");
 
 exports.register = async (req, res, next) => {
-  let { email, password, password2, username } = req.body;
+  let { email, password, password2, name } = req.body;
 
   try {
-    if (!email || !password || !password2 || !username) {
+    if (!email || !password || !password2 || !name) {
       throw new BadRequest("Please fill in all fields correctly.");
     }
     if (password != password2 && password.length < 6) {
@@ -23,7 +23,7 @@ exports.register = async (req, res, next) => {
       throw new Forbidden("Unauthorized.");
     } else {
       const newUser = new db.User({
-        username,
+        name,
         email,
         password,
       });
@@ -33,7 +33,7 @@ exports.register = async (req, res, next) => {
       const token = await jwt.sign(
         {
           id: newUser._id,
-          username: newUser.username,
+          name: newUser.name,
         },
         secret,
         {
